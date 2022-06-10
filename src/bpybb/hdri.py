@@ -90,3 +90,5 @@ def apply_hdri(path_to_image, bg_color, hdri_light_strength, bg_strength):
     to_node = world_output_node
     world_node_tree.links.new(from_node.outputs["Shader"], to_node.inputs["Surface"])
     # links end
+
+    return world_node_tree
