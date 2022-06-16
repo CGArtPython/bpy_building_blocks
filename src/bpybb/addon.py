@@ -59,3 +59,11 @@ def enable_pointcache_pc2():
     https://docs.blender.org/manual/en/3.0/addons/import_export/pc2.html
     """
     enable_addon(addon_module_name="io_export_pc2")
+
+
+def enable_animation_animall():
+    """
+    enable Animall addon
+    https://docs.blender.org/manual/en/dev/addons/animation/animall.html
+    """
+    enable_addon(addon_module_name="animation_animall")
