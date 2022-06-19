@@ -8,6 +8,12 @@ def active_object():
 
 
 def make_active(obj):
+    """
+    Select and make the object active in the scene
+
+    Args:
+        obj: object.
+    """
     bpy.ops.object.select_all(action="DESELECT")
     obj.select_set(True)
     bpy.context.view_layer.objects.active = obj
@@ -33,9 +39,7 @@ def purge_orphans():
     """
     if bpy.app.version >= (3, 0, 0):
         # run this only for Blender versions 3.0 and higher
-        bpy.ops.outliner.orphans_purge(
-            do_local_ids=True, do_linked_ids=True, do_recursive=True
-        )
+        bpy.ops.outliner.orphans_purge(do_local_ids=True, do_linked_ids=True, do_recursive=True)
     else:
         # run this only for Blender versions lower than 3.0
         # call purge_orphans() recursively until there are no more orphan data blocks to purge
@@ -83,3 +87,35 @@ def clean_scene():
     bpy.context.scene.world = bpy.data.worlds["World"]
 
     purge_orphans()
+
+
+def render_animation():
+    """
+    Renders the animation in the currently active scene
+    """
+    bpy.ops.render.render(animation=True)
+
+
+def render_image(write_still=False):
+    """
+    Renders an image in the currently active scene at the current frame
+
+    Args:
+        write_still: write the rendered image to disk. Defaults to False.
+    """
+    bpy.ops.render.render(write_still=write_still)
+
+
+def parent(child_obj, parent_obj, keep_transform=False):
+    """
+    Parent the child object to the parent object
+
+    Args:
+        child_obj: child object that will be parented.
+        parent_obj: parent object that will be parented to.
+        keep_transform: keep the transform of the child object. Defaults to False.
+    """
+    make_active(child_obj)
+    child_obj.parent = parent_obj
+    if keep_transform:
+        child_obj.matrix_parent_inverse = parent_obj.matrix_world.inverted()
