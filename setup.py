@@ -5,7 +5,7 @@ README_TEXT = pathlib.Path(__file__).parent.joinpath("README.md").read_text()
 
 setup(
     name="bpy_building_blocks",
-    version="0.0.1",
+    version="0.0.2",
     description="A collection of helper functions and code used for speeding up Blender 3D Python script development.",
     long_description=README_TEXT,
     long_description_content_type="text/markdown",
