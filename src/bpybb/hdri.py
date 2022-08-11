@@ -1,3 +1,7 @@
+"""
+This module contains utilities for working with HDRIs.
+"""
+
 import bpy
 
 
@@ -26,9 +30,7 @@ def apply_hdri(path_to_image, bg_color, hdri_light_strength, bg_strength):
     location_x += 200
     mapping_node.name = "Mapping"
 
-    environment_texture_node = world_node_tree.nodes.new(
-        type="ShaderNodeTexEnvironment"
-    )
+    environment_texture_node = world_node_tree.nodes.new(type="ShaderNodeTexEnvironment")
     environment_texture_node.location.x = location_x
     location_x += 300
     environment_texture_node.name = "Environment Texture"

@@ -1,3 +1,7 @@
+"""
+This module contains utilities for working with bmesh objects (Blender's mesh data representation).
+"""
+
 import bmesh
 import mathutils
 

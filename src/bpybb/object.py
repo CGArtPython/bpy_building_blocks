@@ -1,3 +1,7 @@
+"""
+This module contains utilities for working with Blender objects.
+"""
+
 import bpy
 
 from bpybb.utils import active_object, make_active

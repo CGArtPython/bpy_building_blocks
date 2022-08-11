@@ -1,3 +1,7 @@
+"""
+This module contains utilities for working with Blender add-ons.
+"""
+
 import addon_utils
 
 

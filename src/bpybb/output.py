@@ -1,3 +1,7 @@
+"""
+This module contains utilities for setting up the render resolution.
+"""
+
 import bpy
 
 
