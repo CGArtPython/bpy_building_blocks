@@ -1,11 +1,14 @@
-import pathlib
 from setuptools import setup
+import pathlib
 
 README_TEXT = pathlib.Path(__file__).parent.joinpath("README.md").read_text()
 
+# imports __version__ without importing the bpybb package
+exec(pathlib.Path(__file__).parent.joinpath("src", "bpybb", "version.py").read_text())
+
 setup(
     name="bpy_building_blocks",
-    version="0.0.2",
+    version=__version__,
     description="A collection of helper functions and code used for speeding up Blender 3D Python script development.",
     long_description=README_TEXT,
     long_description_content_type="text/markdown",
