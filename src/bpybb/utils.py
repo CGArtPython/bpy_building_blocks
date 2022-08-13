@@ -1,9 +1,24 @@
+"""
+This module contains common helper utilities.
+"""
+
 import contextlib
 
 import bpy
 
 
+class Axis:
+    """Helper class to make code working with axis more readable."""
+
+    X = 0
+    Y = 1
+    Z = 2
+
+
 def active_object():
+    """
+    returns the currently active object
+    """
     return bpy.context.active_object
 
 
@@ -19,8 +34,35 @@ def make_active(obj):
     bpy.context.view_layer.objects.active = obj
 
 
+def render_animation():
+    """start rendering the animation
+    same as Menu > Render > Render Animation"""
+    bpy.ops.render.render(animation=True)
+
+
+def app_version_is_or_greater_than(major: int, minor: int = 0, subversion: int = 0) -> bool:
+    """The current version of Blender is equal to or
+    greater than the passed in major.minor.subversion
+    """
+    return bpy.app.version >= (major, minor, subversion)
+
+
+def app_version_less_than(major: int, minor: int = 0, subversion: int = 0) -> bool:
+    """The current version of Blender is less than
+    the passed in major.minor.subversion
+    """
+    return bpy.app.version < (major, minor, subversion)
+
+
 @contextlib.contextmanager
 def editmode():
+    """
+    A context manager for toggling the editmode
+
+    Usage:
+    with editmode():
+        # do mesh editing
+    """
     # enter editmode
     bpy.ops.object.editmode_toggle()
 
@@ -89,6 +131,32 @@ def clean_scene():
     purge_orphans()
 
 
+def clean_scene_experimental():
+    """
+    An alternative clean scene function that just deletes
+    the whole scene and creates a new one.
+
+    Note: This might crash Blender! (hence experimental in the name)
+    Proceed at your own risk!
+    """
+
+    # rename the current scene, so the new scene won't have a Scene.001
+    old_scene_name = "to_delete"
+    bpy.context.window.scene.name = old_scene_name
+
+    # create a new scene (the name should be just "Scene")
+    bpy.ops.scene.new()
+
+    # remove the old scene
+    bpy.data.scenes.remove(bpy.data.scenes[old_scene_name])
+
+    # create a new world data block
+    bpy.ops.world.new()
+    bpy.context.scene.world = bpy.data.worlds["World"]
+
+    purge_orphans()
+
+
 def render_animation():
     """
     Renders the animation in the currently active scene
@@ -119,3 +187,15 @@ def parent(child_obj, parent_obj, keep_transform=False):
     child_obj.parent = parent_obj
     if keep_transform:
         child_obj.matrix_parent_inverse = parent_obj.matrix_world.inverted()
+
+
+def apply_scale():
+    bpy.ops.object.transform_apply(scale=True)
+
+
+def apply_location():
+    bpy.ops.object.transform_apply(location=True)
+
+
+def apply_rotation():
+    bpy.ops.object.transform_apply(rotation=True)
