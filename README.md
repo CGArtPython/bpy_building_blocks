@@ -2,7 +2,66 @@
 
 A collection of helper functions and code used for speeding up Blender 3D Python script development.
 
-Important: This package assumes you are using [Blender's](https://www.blender.org/) the embedded Python interpreter. 
+Important: This package assumes you are using [Blender's](https://www.blender.org/) embedded Python interpreter. 
+
+# Installation
+
+## Installation Walkthrough Video 
+
+[YouTube: How to install the bpy Building Blocks Python package](https://www.youtube.com/watch?v=_irmuKXjhS0)
+
+## From the command line via pip (into Blender's embedded Python interpreter)
+
+---
+
+### on Windows
+
+**Important:**
+Make sure the `site-packages` folder of Blender's embedded Python interpreter is `writable`.
+_See video ^ if you are not sure how to do that_
+If you won't do this the package will be installed into another folder outside of Blender's embedded Python interpreter.
+And you will see this warning: `Defaulting to user installation because normal site-packages is not writeable`
+
+Run the pip install:
+* `Blender <VERSION>/<VERSION>/python/bin/python.exe -m pip install bpy-building-blocks`
+
+Example:
+* `> cd C:\Program Files\Blender Foundation\Blender 3.2\3.2\python\bin `
+* `> .\python.exe -m pip install bpy-building-blocks`
+
+---
+
+### on macOS
+
+**Important:**
+Make sure pip is available.
+
+Run `ensurepip`
+* `/Applications/Blender.app/Contents/Resources/<VERSION>/python/bin/python -m ensurepip`
+
+Run the pip install:
+* `/Applications/Blender.app/Contents/Resources/<VERSION>/python/bin/python -m pip install bpy-building-blocks`
+
+---
+
+### on Linux
+
+**Important:**
+Make sure pip is available.
+
+Run `ensurepip`
+* `~/<INSTALL LOCATION OF BLENDER>/<VERSION>/python/bin/python -m ensurepip`
+
+Run the pip install:
+* `~/<INSTALL LOCATION OF BLENDER>/<VERSION>/python/bin/python -m pip install bpy-building-blocks`
+
+---
+
+## Via Blender Add-on
+
+[bpy_building_blocks_addon on github](https://github.com/CGArtPython/bpy_building_blocks_addon/releases)
+
+See video for details [YouTube: How to install the bpy Building Blocks Python package](https://www.youtube.com/watch?v=_irmuKXjhS0)
 
 # Package Contents
 
