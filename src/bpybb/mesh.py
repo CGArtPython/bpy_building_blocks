@@ -2,6 +2,7 @@
 This module contains utilities for working with bmesh objects (Blender's mesh data representation).
 """
 
+import bpy
 import bmesh
 import mathutils
 
@@ -17,3 +18,9 @@ def get_vert_coordinates_list(obj):
             coordinates_list.append(vector)
 
     return coordinates_list
+
+
+def subdivide(number_cuts=1, smoothness=0):
+    with edit_mode():
+        bpy.ops.mesh.select_all(action="SELECT")
+        bpy.ops.mesh.subdivide(number_cuts=number_cuts, smoothness=smoothness)

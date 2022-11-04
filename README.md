@@ -109,6 +109,7 @@ See video for details [YouTube: How to install the bpy Building Blocks Python pa
 ## Mesh Utilities
 
 * bpybb.mesh.get_vert_coordinates_list(obj) - get a list of vertex coordinates for a given object
+* bpybb.mesh.subdivide() - subdivide the current active object
 
 ## Random Utilities
 
