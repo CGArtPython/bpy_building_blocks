@@ -55,20 +55,20 @@ def app_version_less_than(major: int, minor: int = 0, subversion: int = 0) -> bo
 
 
 @contextlib.contextmanager
-def editmode():
+def edit_mode():
     """
-    A context manager for toggling the editmode
+    A context manager for toggling the edit_mode
 
     Usage:
-    with editmode():
+    with edit_mode():
         # do mesh editing
     """
-    # enter editmode
+    # enter edit mode
     bpy.ops.object.editmode_toggle()
 
-    yield  # return out of the function in editmode
+    yield  # return out of the function in edit_mode
 
-    # when leaving the context manager scope - exit editmode
+    # when leaving the context manager scope - exit edit_mode
     bpy.ops.object.editmode_toggle()
 
 

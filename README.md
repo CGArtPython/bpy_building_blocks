@@ -70,7 +70,7 @@ See video for details [YouTube: How to install the bpy Building Blocks Python pa
 * active_object() - Get a references to the currently active object 
 * clean_scene() - Removing all of the objects, collection, materials, particles, textures, images, curves, meshes, actions, nodes, and worlds from the scene; Checkout this video explanation with example ["How to clean the scene with Python in Blender (with examples)"](https://youtu.be/3rNqVPtbhzc)
 * purge_orphans() - Remove all orphan data blocks; see this from more info: https://youtu.be/3rNqVPtbhzc?t=149
-* editmode() - A context manager to get into and out of edit mode
+* edit_mode() - A context manager to get into and out of edit mode
 * make_active(obj) - Make the passed in object active
 * parent(child_obj, parent_obj, keep_transform=False) - Parent one object to another
 * render_animation() - Renders the animation in the currently active scene
