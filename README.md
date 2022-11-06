@@ -2,6 +2,8 @@
 
 A collection of helper functions and code used for speeding up Blender 3D Python script development.
 
+Checkout project examples [YouTube: Art with a Python script](https://www.youtube.com/watch?v=rIhXHSdMWmc&list=PLB8-FQgROBmm-2f6Vyos6rbnjZeEScrX1)
+
 Important: This package assumes you are using [Blender's](https://www.blender.org/) embedded Python interpreter. 
 
 # Installation
