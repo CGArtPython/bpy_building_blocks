@@ -189,6 +189,27 @@ def parent(child_obj, parent_obj, keep_transform=False):
         child_obj.matrix_parent_inverse = parent_obj.matrix_world.inverted()
 
 
+def duplicate_object(obj=None, linked=False):
+    """
+    Duplicate object
+
+    Args:
+        obj: source object that will be duplicated.
+        linked: link duplicated object to target source.
+    """
+    if obj is None:
+        obj = active_object()
+
+    bpy.ops.object.select_all(action="DESELECT")
+    obj.select_set(True)
+    bpy.context.view_layer.objects.active = obj
+
+    bpy.ops.object.duplicate(linked=linked)
+    duplicate_obj = active_object()
+
+    return duplicate_obj
+
+
 def apply_scale():
     bpy.ops.object.transform_apply(scale=True)
 

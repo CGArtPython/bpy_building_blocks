@@ -73,6 +73,7 @@ See video for details [YouTube: How to install the bpy Building Blocks Python pa
 * edit_mode() - A context manager to get into and out of edit mode
 * make_active(obj) - Make the passed in object active
 * parent(child_obj, parent_obj, keep_transform=False) - Parent one object to another
+* duplicate_object(obj=None, linked=False)
 * render_animation() - Renders the animation in the currently active scene
 * render_image(write_still=False) - Renders the currently active scene
 
