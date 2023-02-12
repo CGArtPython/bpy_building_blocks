@@ -4,7 +4,10 @@ This module contains utilities for working with Blender objects.
 
 import bpy
 
+import bpy_types
+
 from bpybb.utils import active_object, make_active
+from bpybb.addon import enable_extra_meshes
 
 
 def apply_location():
@@ -29,3 +32,55 @@ def track_empty(obj):
     bpy.context.object.constraints["Track To"].target = empty_target
 
     return empty_target
+
+
+def add_bezier_circle(radius: float = 1.0, bevel_depth: float = 0.0, resolution_u: int = 12, extrude: float = 0.0) -> bpy_types.Object:
+    """Adds a Bezier circle curve into the scene.
+
+    Args:
+        radius (float, optional): the radius of the circle. Defaults to 1.
+        bevel_depth (float, optional): the size of the bevel (the bevel is off if this is 0). Defaults to 0.
+        resolution_u (int, optional): the number of computed points between two control points. Defaults to 12.
+
+    Returns:
+        bpy_types.Object: a reference to the created Bezier circle curve object
+    """
+    bpy.ops.curve.primitive_bezier_circle_add(radius=radius)
+
+    bezier_circle_obj = active_object()
+
+    bezier_circle_obj.data.bevel_depth = bevel_depth
+    bezier_circle_obj.data.resolution_u = resolution_u
+    bezier_circle_obj.data.extrude = extrude
+
+    return bezier_circle_obj
+
+
+def add_round_cube(radius: float = 1.0) -> bpy_types.Object:
+    """Adds a Round Cube into the scene.
+
+    Args:
+        radius (float, optional): the radios of the Round Cube. Defaults to 1.0.
+
+    Returns:
+        bpy_types.Object: a reference to the created Round Cube curve object
+    """
+    enable_extra_meshes()
+    bpy.ops.mesh.primitive_round_cube_add(radius=radius)
+    return active_object()
+
+
+def add_subdivided_round_cube(radius: float = 1.0) -> tuple[bpy_types.Object, bpy.types.SubsurfModifier]:
+    """Adds a Round Cube into the scene and applies a Subdivision modifier.
+
+    Args:
+        radius (float, optional): the radios of the Round Cube. Defaults to 1.0.
+
+    Returns:
+        bpy_types.Object: a reference to the created Round Cube curve object
+    """
+    round_cube_obj = add_round_cube(radius)
+
+    bpy.ops.object.modifier_add(type="SUBSURF")
+
+    return round_cube_obj, round_cube_obj.modifiers["Subdivision"]

@@ -123,6 +123,9 @@ See video for details [YouTube: How to install the bpy Building Blocks Python pa
 * bpybb.object.add_empty(name=None) - Add an Empty object into the scene
 * bpybb.object.apply_location() - Applies the location of the current object
 * bpybb.object.track_empty(obj) - Adds an Empty object and adds a To Track Constraint on the passed in object to track the Empty
+* bpybb.object.add_bezier_circle(radius: float = 1.0, bevel_depth: float = 0.0, resolution_u: int = 12, extrude: float = 0.0) - Adds a Bezier circle curve into the scene.
+* bpybb.object.add_round_cube(radius: float = 1.0) - Adds a Round Cube into the scene.
+* bpybb.object.add_subdivided_round_cube(radius: float = 1.0) - Adds a Round Cube into the scene and applies a Subdivision modifier.
 
 ## Animation Utilities
 
