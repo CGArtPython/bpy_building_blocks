@@ -117,6 +117,7 @@ See video for details [YouTube: How to install the bpy Building Blocks Python pa
 ## Random Utilities
 
 * bpybb.random.time_seed() - Sets the random seed based on the time and copies the seed into the clipboard
+* bpybb.random.get_random_rotation() - Returns a random Euler rotation on X, Y, Z
 
 ## Object Utilities
 
