@@ -131,6 +131,9 @@ See video for details [YouTube: How to install the bpy Building Blocks Python pa
 * bpybb.animate.animate_360_rotation(axis_index, last_frame, obj=None, clockwise=False, linear=True, start_frame=1) - animates the 360 rotation of an object about the given axis
 * bpybb.animate.animate_rotation(angle, axis_index, last_frame, obj=None, clockwise=False, linear=True, start_frame=1) - animates the rotation of an object about the given axis
 * bpybb.animate.create_data_animation_loop(obj, data_path, start_value, mid_value, start_frame, loop_length, linear_extrapolation=True) - make a data property loop
+* bpybb.animate.animate_up_n_down_bob(start_value: mathutils.Vector, mid_value: mathutils.Vector, obj: bpy_types.Object = None, loop_length: int = 90, start_frame: int = random.randint(0, 60)) - animate the up and down bobbing motion of an object
+* bpybb.animate.add_fcruve_cycles_modifier(obj: bpy_types.Object = None) - Apply a cycles modifier to all the fcurve animation data of an object.
+
 
 ## Output Utilities
 
