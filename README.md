@@ -134,6 +134,9 @@ See video for details [YouTube: How to install the bpy Building Blocks Python pa
 * bpybb.animate.animate_up_n_down_bob(start_value: mathutils.Vector, mid_value: mathutils.Vector, obj: bpy_types.Object = None, loop_length: int = 90, start_frame: int = random.randint(0, 60)) - animate the up and down bobbing motion of an object
 * bpybb.animate.add_fcruve_cycles_modifier(obj: bpy_types.Object = None) - Apply a cycles modifier to all the fcurve animation data of an object.
 
+## Modifier Utilities
+
+* bpybb.modifier.add_displace_modifier(name: str, texture_type: str, empty_obj: bpy_types.Object = None) - Add a displace modifier and a texture to the currently active object.
 
 ## Output Utilities
 
