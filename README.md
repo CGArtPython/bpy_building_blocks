@@ -69,15 +69,17 @@ See video for details [YouTube: How to install the bpy Building Blocks Python pa
 
 ## Utilities
 
-* active_object() - Get a references to the currently active object 
-* clean_scene() - Removing all of the objects, collection, materials, particles, textures, images, curves, meshes, actions, nodes, and worlds from the scene; Checkout this video explanation with example ["How to clean the scene with Python in Blender (with examples)"](https://youtu.be/3rNqVPtbhzc)
-* purge_orphans() - Remove all orphan data blocks; see this from more info: https://youtu.be/3rNqVPtbhzc?t=149
-* edit_mode() - A context manager to get into and out of edit mode
-* make_active(obj) - Make the passed in object active
-* parent(child_obj, parent_obj, keep_transform=False) - Parent one object to another
-* duplicate_object(obj=None, linked=False)
-* render_animation() - Renders the animation in the currently active scene
-* render_image(write_still=False) - Renders the currently active scene
+* bpybb.utils.active_object() - Get a references to the currently active object 
+* bpybb.utils.clean_scene() - Removing all of the objects, collection, materials, particles, textures, images, curves, meshes, actions, nodes, and worlds from the scene; Checkout this video explanation with example ["How to clean the scene with Python in Blender (with examples)"](https://youtu.be/3rNqVPtbhzc)
+* bpybb.utils.purge_orphans() - Remove all orphan data blocks; see this from more info: https://youtu.be/3rNqVPtbhzc?t=149
+* bpybb.utils.edit_mode() - A context manager to get into and out of edit mode
+* bpybb.utils.make_active(obj) - Make the passed in object active
+* bpybb.utils.parent(child_obj, parent_obj, keep_transform=False) - Parent one object to another
+* bpybb.utils.duplicate_object(obj=None, linked=False)
+* bpybb.utils.render_animation() - Renders the animation in the currently active scene
+* bpybb.utils.render_image(write_still=False) - Renders the currently active scene
+* bpybb.utils.remove_libraries() - Remove libraries that were linked into the Blend file
+* bpybb.utils.deselect_all_objects() - Similar to bpy.ops.object.select_all(action="DESELECT")
 
 ## Color Utilities
 
@@ -99,6 +101,7 @@ See video for details [YouTube: How to install the bpy Building Blocks Python pa
 ## Collection Utilities
 
 * bpybb.collection.create_collection(col_name) - creates a [Blender Scene Collection](https://docs.blender.org/manual/en/latest/scene_layout/collections/collections.html)
+* bpybb.collection.create_collection(collection_name: str, location: mathutils.Vector, rotation_euler: Optional[mathutils.Euler] = None, base_collection: Optional[bpy_types.Collection] = None) -> bpy_types.Object - creates an instance of a collection
 
 ## HDRI Utilities
 
@@ -123,10 +126,12 @@ See video for details [YouTube: How to install the bpy Building Blocks Python pa
 
 * bpybb.object.add_empty(name=None) - Add an Empty object into the scene
 * bpybb.object.apply_location() - Applies the location of the current object
+* bpybb.object.rotate_object(axis: int, degrees: float) - Rotate the active object about a given axis
 * bpybb.object.track_empty(obj) - Adds an Empty object and adds a To Track Constraint on the passed in object to track the Empty
 * bpybb.object.add_bezier_circle(radius: float = 1.0, bevel_depth: float = 0.0, resolution_u: int = 12, extrude: float = 0.0) - Adds a Bezier circle curve into the scene.
 * bpybb.object.add_round_cube(radius: float = 1.0) - Adds a Round Cube into the scene.
 * bpybb.object.add_subdivided_round_cube(radius: float = 1.0) - Adds a Round Cube into the scene and applies a Subdivision modifier.
+* join_objects(objects: list[bpy_types.Object]) -> bpy_types.Object - Joins the provided objects into one object
 
 ## Animation Utilities
 
@@ -158,3 +163,7 @@ See video for details [YouTube: How to install the bpy Building Blocks Python pa
 * bpybb.output.set_twitter_landscape_render_res() - Set the resolution of the rendered image to 1280x720 from Twitter's Media Best Practices ref: https://developer.twitter.com/en/docs/twitter-api/v1/media/upload-media/uploading-media/media-best-practices
 * bpybb.output.set_twitter_square_render_res() - Set the resolution of the rendered image to 720x720 from Twitter's Media Best Practices ref: https://developer.twitter.com/en/docs/twitter-api/v1/media/upload-media/uploading-media/media-best-practices
 * bpybb.output.set_wqhd_render_res() - Set the resolution of the rendered image to 2560x1440 (QHD)
+
+## World Shader Utilities
+
+* bpybb.world_shader.set_up_world_sun_light() - Set up the lighing in a scene using the ShaderNodeTexSky world shader node
