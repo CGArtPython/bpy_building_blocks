@@ -6,8 +6,21 @@ import bpy
 
 import bpy_types
 
-from bpybb.utils import active_object, make_active
+from bpybb.utils import active_object, make_active, deselect_all_objects
 from bpybb.addon import enable_extra_meshes
+
+
+def join_objects(objects):
+    deselect_all_objects()
+
+    for obj in objects:
+        obj.select_set(True)
+
+    bpy.ops.object.join()
+
+    new_obj = active_object()
+
+    return new_obj
 
 
 def apply_location():
