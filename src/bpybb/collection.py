@@ -13,11 +13,11 @@ import mathutils
 from bpybb.utils import active_object, deselect_all_objects
 
 
-def create_collection(col_name: str) -> bpy_types.Collection:
+def create_collection(collection_name: str) -> bpy_types.Collection:
     deselect_all_objects()
 
-    bpy.ops.collection.create(name=col_name)
-    collection = bpy.data.collections[col_name]
+    bpy.ops.collection.create(name=collection_name)
+    collection = bpy.data.collections[collection_name]
 
     bpy.context.scene.collection.children.link(collection)
 
