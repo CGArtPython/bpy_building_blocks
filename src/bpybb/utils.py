@@ -157,6 +157,13 @@ def clean_scene_experimental():
     purge_orphans()
 
 
+def remove_libraries() -> None:
+    """
+    Remove libraries that were linked into the Blend file
+    """
+    bpy.data.batch_remove(bpy.data.libraries)
+
+
 def render_animation():
     """
     Renders the animation in the currently active scene
