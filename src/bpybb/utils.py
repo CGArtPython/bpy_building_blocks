@@ -34,6 +34,14 @@ def make_active(obj):
     bpy.context.view_layer.objects.active = obj
 
 
+def deselect_all_objects():
+    """
+    Similar to bpy.ops.object.select_all(action="DESELECT")
+    """
+    for obj in bpy.data.objects:
+        obj.select_set(False)
+
+
 def render_animation():
     """start rendering the animation
     same as Menu > Render > Render Animation"""
