@@ -10,11 +10,11 @@ import bpy
 import bpy_types
 import mathutils
 
-from bpybb.utils import active_object
+from bpybb.utils import active_object, deselect_all_objects
 
 
 def create_collection(col_name: str) -> bpy_types.Collection:
-    bpy.ops.object.select_all(action="DESELECT")
+    deselect_all_objects()
 
     bpy.ops.collection.create(name=col_name)
     collection = bpy.data.collections[col_name]

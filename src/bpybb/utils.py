@@ -29,7 +29,7 @@ def make_active(obj):
     Args:
         obj: object.
     """
-    bpy.ops.object.select_all(action="DESELECT")
+    deselect_all_objects()
     obj.select_set(True)
     bpy.context.view_layer.objects.active = obj
 
@@ -215,7 +215,7 @@ def duplicate_object(obj=None, linked=False):
     if obj is None:
         obj = active_object()
 
-    bpy.ops.object.select_all(action="DESELECT")
+    deselect_all_objects()
     obj.select_set(True)
     bpy.context.view_layer.objects.active = obj
 
